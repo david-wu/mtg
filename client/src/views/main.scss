@@ -1,0 +1,17 @@
+main{
+    top-bar{
+        position: absolute;
+        top:0;
+    }
+    #main-ui-view{
+        position: absolute;
+        top: 75px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+body{
+    overflow: hidden;
+}
