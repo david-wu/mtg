@@ -4,6 +4,7 @@
     "cookie-parser": "^1.4.1",
     "cors": "^2.7.1",
     "express": "^4.13.4",
+    "fuzzy-tutor": "0.0.3",
     "lodash": "^4.3.0",
     "request": "^2.69.0",
     "shopify-node-api": "^1.6.1",

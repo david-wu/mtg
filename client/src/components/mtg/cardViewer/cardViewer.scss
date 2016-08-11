@@ -1,0 +1,13 @@
+mtg-card-viewer, [mtg-card-viewer]{
+
+	.tappable{
+		transition: transform 0.15 linear;
+		transform: rotate(0);
+
+		&.tapped{
+			transform: rotate(90deg);
+		}
+
+	}
+
+}

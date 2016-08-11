@@ -12,13 +12,15 @@ app.use('/', express.static('../client/build'));
 app.use('/api', routes);
 
 var server = http.createServer(app);
-server.listen(9090);
+server.listen(8081, function(){
+	console.log('serving on 8081')
+});
 
 
 function strapApp(app){
-    var cors = require('cors');
     var bodyParser = require('body-parser');
     var cookieParser = require('cookie-parser');
+    var cors = require('cors');
 
     app.use(bodyParser.urlencoded({extended:true}));
     app.use(bodyParser.json());

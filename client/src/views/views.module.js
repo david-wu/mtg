@@ -15,6 +15,12 @@ angular.module('views', [])
                 templateUrl: 'views/profileViewer/profileViewer.tpl.html',
             });
 
-        $urlRouterProvider.otherwise('/noteViewPage');
+        $stateProvider
+            .state('mtg', {
+                url: '/mtg',
+                template: '<mtg-card-picker>'
+            });
+
+        $urlRouterProvider.otherwise('/mtg');
 
     });

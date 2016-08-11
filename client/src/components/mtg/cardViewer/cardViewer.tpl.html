@@ -1,0 +1,8 @@
+<div class="flex column">
+	<div style="text-align:center" ng-if="card.showName">
+		{{card.name}}
+	</div>
+	<div class="tappable" ng-class="{tapped: card.tapped}">
+		<img src="{{card.img}}">
+	</div>
+</div>

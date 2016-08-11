@@ -1,17 +1,30 @@
+var _ = require('lodash');
 var express = require('express');
 var router = express.Router();
 
-router.delete('/address', [dummy]);
-router.put('/address', [dummy]);
-router.post('/address', [dummy]);
+var fuzzyTutor = require('fuzzy-tutor');
+
+var allCards = require('../../mtg/allCards.js');
+var cardNames = Object.keys(allCards);
+router.get('/card', function(req, res){
+	res.json(cardNames)
+})
+
+var cardCache = {};
+router.get('/card/:name', function(req, res){
+	var name = req.params.name;
+
+	if(cardCache[name]){
+		return res.json(cardCache[name])
+	}
+
+	fuzzyTutor.query(name)
+		.then(function(card){
+			cardCache[name] = card;
+			res.json(card)
+		})
+})
 
 
-function dummy(req, res){
-    setTimeout(function(){
-        res.status(200).send({
-            message: 'but why?'
-        });
-    }, 1000 + Math.round(Math.random()*500))
-}
 
 module.exports = router;
