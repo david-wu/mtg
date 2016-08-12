@@ -1,7 +1,7 @@
 mtg-card-viewer, [mtg-card-viewer]{
 
 	.tappable{
-		transition: transform 0.15 linear;
+		transition: transform 0.1s linear;
 		transform: rotate(0);
 
 		&.tapped{

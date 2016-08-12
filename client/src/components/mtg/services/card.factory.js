@@ -9,6 +9,7 @@ function CardFactory($http){
 
 	function Card(options){
 		_.extend(this, options);
+		this.id = _.uniqueId();
 	}
 
 	Card.prototype = {

@@ -1,5 +1,3 @@
-
-
 <div class="flex wrap">
-	<div mtg-card-viewer ng-repeat="card in cardGroup track by $index"" card="card"></div>
+	<div ng-repeat="card in getVisibleCards() track by card.id" mtg-card-viewer card="card"></div>
 </div>

@@ -18,8 +18,20 @@ angular.module('views', [])
         $stateProvider
             .state('mtg', {
                 url: '/mtg',
-                template: '<mtg-card-picker>'
-            });
+                template: '<mtg>'
+            })
+                .state('mtg.myCards', {
+                    url: '/myCards',
+                    template: '<mtg-card-group-page>',
+                })
+                .state('mtg.myDecks', {
+                    url: '/myDecks',
+                    template: '<mtg-card-group-page>',
+                })
+                .state('mtg.wishlist', {
+                    url: '/wishlist',
+                    template: '<mtg-card-group-page>',
+                })
 
         $urlRouterProvider.otherwise('/mtg');
 

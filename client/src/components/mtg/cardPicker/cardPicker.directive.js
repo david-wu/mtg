@@ -1,36 +1,38 @@
 angular.module('components')
     .directive('mtgCardPicker', [
     	'Mtg',
+        'CardGroup',
         mtgCardPicker
     ]);
 
-function mtgCardPicker(Mtg){
+function mtgCardPicker(Mtg, CardGroup){
 
 	function link(scope, element){
+
+        var input = element.find('input.card-name');
 
         if(!scope.fromGroup){
             var mtg = new Mtg()
             mtg.getAllCards()
                 .then(function(allCards){
                     scope.fromGroup = allCards;
+                    scope.fromGroup.sortByQuery(scope.q);
                 })
         }
 
         _.defaults(scope, {
-            fromGroup: [],
-            toGroup: [],
+            fromGroup: new CardGroup(),
+            toGroup: new CardGroup(),
         });
 
-
         scope.$watch('q', function(q){
-            if(!scope.fromGroup.search){return;}
-            scope.cards = scope.fromGroup.search(q).slice(0,10);
-        })
+            scope.fromGroup.sortByQuery(q);
+        });
 
-        var input = element.find('input.card-name');
-        input.keypress(function (e) {
-            if(e.which === 13){
-                scope.toGroup.push(scope.cards[0]);
+        input.keypress(function(e){
+            if(e.which===13){
+                scope.toGroup.addCardCopy(scope.fromGroup.children[0]);
+                scope.pick(scope.fromGroup.children[0]);
                 input.select();
                 scope.$evalAsync();
             }
@@ -41,7 +43,8 @@ function mtgCardPicker(Mtg){
     return {
         scope: {
             fromGroup: '=?',
-            toGroup: '=?'
+            toGroup: '=?',
+            pick: '=?',
         },
         templateUrl: 'components/mtg/cardPicker/cardPicker.tpl.html',
         link: link

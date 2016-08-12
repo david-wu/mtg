@@ -1,10 +1,8 @@
-top-bar{
+top-bar,[top-bar]{
     display: block;
-    position:fixed;
     width:100%;
     height: 74px;
-    margin-bottom: 1px;
-    box-shadow: 0 0px 1px $grey;
+    border-bottom: 1px solid $lightGrey;
 
     .logo{
         font-size: 36px;
@@ -15,12 +13,20 @@ top-bar{
         cursor: default;
     }
 
+    .bordered-children{
+        border-left: 0.5px solid $lightGrey;
+        border-right: 0.5px solid $lightGrey;
+        > *{
+            border-left: 0.5px solid $lightGrey;
+            border-right: 0.5px solid $lightGrey;
+        }
+    }
+
     .navBarLink{
         height:100%;
         width: 200px;
         cursor: pointer;
         font-size: 16px;
-        box-shadow: 0 0 2px $grey;
 
         &:hover{
             color: $brandColor;
@@ -33,4 +39,5 @@ top-bar{
         }
 
     }
+
 }

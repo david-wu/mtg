@@ -9,9 +9,14 @@ angular.module('components')
 function MtgFactory($http, $q, CardGroup){
 
 	function Mtg(){
-		_.defaults(this, {
-		});
+
 	}
+
+
+	var myCards = new CardGroup();
+	var wishlist = new CardGroup();
+	var myDecks = new CardGroup();
+
 
 	Mtg.prototype = {
 
@@ -28,6 +33,18 @@ function MtgFactory($http, $q, CardGroup){
 					return CardGroup.makeWithNames(cardNames);
 				})
 		},
+
+		getWishlist: function(){
+			return $q.resolve(wishlist);
+		},
+
+		getMyCards: function(){
+			return $q.resolve(myCards);
+		},
+
+		getMyDecks: function(){
+			return $q.resolve(myDecks);
+		}
 
 	}
 

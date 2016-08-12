@@ -1,8 +1,13 @@
 <div class="flex space-between center-align" style="height:100%;">
-        <div class="logo">nanote</div>
-        <div class="flex">
-            <div class="navBarLink flex center" ng-class="{active: $state.current.name==='mtg'}" ui-sref="mtg">MTG</div>
-            <div class="navBarLink flex center" ng-class="{active: $state.current.name==='noteViewPage'}" ui-sref="noteViewPage">Notes</div>
-            <div class="navBarLink flex center" ng-class="{active: $state.current.name==='profileViewer'}" ui-sref="profileViewer">Profile</div>
-        </div>
+    <div ng-if="topBar.logo" class="logo">{{topBar.logo}}</div>
+    <div class="flex bordered-children">
+        <div
+	        class="navBarLink flex center"
+	        ng-repeat="link in topBar.links"
+	        ng-class="{active: containsName(link)}"
+	        ui-sref="{{link.sref}}"
+        >
+        	{{link.label}}
+    	</div>
+    </div>
 </div>

@@ -1,16 +1,21 @@
 angular.module('components')
     .directive('mtgCardGroupViewer', [
-    	'Mtg',
+    	'CardGroup',
         mtgCardGroupViewer
     ]);
 
-function mtgCardGroupViewer(){
+function mtgCardGroupViewer(CardGroup){
 
 
 	function link(scope){
-		_.extend(scope.cardGroup, {
 
-		})
+        scope.visibleCardCount = 10;
+
+        scope.getVisibleCards = function(){
+            if(!scope.cardGroup){return [];}
+            return scope.cardGroup.children.slice(0, scope.visibleCardCount);
+        };
+
 	}
 
     return {

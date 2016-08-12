@@ -25,6 +25,23 @@ router.get('/card/:name', function(req, res){
 		})
 })
 
+router.get('/card/:names', function(req, res){
+	var name = req.params.names;
+
+	Promise.all(_.map(req.params.names, function(name){
+		if(cardCache[name]){
+			return res.json(cardCache[name])
+		}else{
+			return fuzzyTutor.query(name)
+				.then(function(card){
+					cardCache[name] = card;
+					res.json(card)
+				});
+		}
+	}))
+
+})
+
 
 
 module.exports = router;
