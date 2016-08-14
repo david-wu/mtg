@@ -25,4 +25,6 @@ angular.module('lib')
 	})
 	// .factory('fuzzy', function(){
 	// 	return require('fuzzy');
-	// });
+	// })
+
+// scriptLoader = require('./scriptLoader.js')

@@ -22,17 +22,18 @@ angular.module('views', [])
             })
                 .state('mtg.myCards', {
                     url: '/myCards',
-                    template: '<mtg-card-group-page>',
+                    template: '<card-group-page>',
                 })
-                .state('mtg.myDecks', {
-                    url: '/myDecks',
-                    template: '<mtg-card-group-page>',
+                .state('mtg.myStore', {
+                    url: '/myStore',
+                    template: '<card-group-page>',
                 })
                 .state('mtg.wishlist', {
                     url: '/wishlist',
-                    template: '<mtg-card-group-page>',
+                    template: '<card-group-page>',
                 })
 
+        $urlRouterProvider.when(/mtg/i, '/mtg/myCards');
         $urlRouterProvider.otherwise('/mtg');
 
     });

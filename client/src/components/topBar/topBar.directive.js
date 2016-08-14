@@ -7,12 +7,14 @@ angular.module('components')
 function TopBar($state){
 
     function link(scope, element, attrs){
-        scope.$state = $state;
 
-        scope.containsName = function(link){
-            var re = new RegExp(link.sref, 'i');
-            return re.test($state.current.name);
-        }
+        _.extend(scope, {
+            $state: $state,
+            containsName: function(link){
+                var re = link.match || new RegExp(link.sref, 'i');
+                return re.test($state.current.name);
+            }
+        });
     }
 
     return {

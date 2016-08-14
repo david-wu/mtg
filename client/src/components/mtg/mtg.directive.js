@@ -17,8 +17,8 @@ function mtg(CardGroup){
 						label: 'My Cards',
 					},
 					{
-						sref: 'mtg.myDecks',
-						label: 'My Decks',
+						sref: 'mtg.myStore',
+						label: 'My Store',
 					},
 					{
 						sref: 'mtg.wishlist',

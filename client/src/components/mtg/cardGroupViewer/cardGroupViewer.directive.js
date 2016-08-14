@@ -1,10 +1,10 @@
 angular.module('components')
-    .directive('mtgCardGroupViewer', [
+    .directive('cardGroupViewer', [
     	'CardGroup',
-        mtgCardGroupViewer
+        cardGroupViewer
     ]);
 
-function mtgCardGroupViewer(CardGroup){
+function cardGroupViewer(CardGroup){
 
 
 	function link(scope){

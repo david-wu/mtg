@@ -1,26 +1,30 @@
 angular.module('components')
-    .directive('mtgCardGroupPage', [
-    	'Mtg',
-        mtgCardGroupPage
+    .directive('cardGroupPage', [
+        'CardGroup',
+        cardGroupPage
     ]);
 
-function mtgCardGroupPage(){
-
+function cardGroupPage(CardGroup){
 
 	function link(scope){
+
+        scope.toGroup = new CardGroup();
+
         _.extend(scope, {
-            showCardPicker: true,
+            showCardPicker: false,
             pickCard: function(card){
-                console.log(card)
+                scope.toGroup.addCardCopy(card);
+            },
+
+            form: {
+
             }
         });
 
 	}
 
     return {
-        scope: {
-        	cardGroup: '='
-        },
+        scope: {},
         templateUrl: 'components/mtg/cardGroupPage/cardGroupPage.tpl.html',
         link: link
     };

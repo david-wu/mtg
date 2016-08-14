@@ -1,10 +1,10 @@
 angular.module('components')
-    .directive('mtgCardViewer', [
+    .directive('cardViewer', [
     	'Mtg',
-        mtgCardViewer
+        cardViewer
     ]);
 
-function mtgCardViewer(Mtg){
+function cardViewer(Mtg){
 
 	function link(scope){
         scope.card.fetch();

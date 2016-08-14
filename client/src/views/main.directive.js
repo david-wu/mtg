@@ -12,7 +12,8 @@ function Main(){
 				logo: 'nanote',
 				links: [
 					{
-						sref: 'mtg',
+						match: /mtg/i,
+						sref: 'mtg.myCards',
 						label: 'MTG',
 					},
 					{

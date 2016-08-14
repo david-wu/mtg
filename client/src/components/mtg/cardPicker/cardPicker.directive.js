@@ -1,15 +1,16 @@
 angular.module('components')
-    .directive('mtgCardPicker', [
+    .directive('cardPicker', [
     	'Mtg',
         'CardGroup',
-        mtgCardPicker
+        cardPicker
     ]);
 
-function mtgCardPicker(Mtg, CardGroup){
+function cardPicker(Mtg, CardGroup){
 
 	function link(scope, element){
 
         var input = element.find('input.card-name');
+        input.focus();
 
         if(!scope.fromGroup){
             var mtg = new Mtg()
@@ -17,7 +18,7 @@ function mtgCardPicker(Mtg, CardGroup){
                 .then(function(allCards){
                     scope.fromGroup = allCards;
                     scope.fromGroup.sortByQuery(scope.q);
-                })
+                });
         }
 
         _.defaults(scope, {
