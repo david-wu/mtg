@@ -9,7 +9,7 @@ function Main(){
 
 		_.extend(scope, {
 			topBar: {
-				logo: 'nanote',
+				logo: 'dawu',
 				links: [
 					{
 						match: /mtg/i,

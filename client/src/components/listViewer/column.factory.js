@@ -9,11 +9,15 @@ function ColumnFactory(){
         _.extend(this, options);
     }
 
-    Column.prototype.clickHandler = function(){};
+    Column.prototype = {
 
-    Column.prototype.class = function(){};
+        clickHandler: function(){},
 
-    Column.prototype.html = function(){return ''};
+        class: function(){},
+
+        html: function(){return ''},
+
+    }
 
     return Column;
 }

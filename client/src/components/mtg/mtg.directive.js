@@ -10,6 +10,7 @@ function mtg(CardGroup){
 	function link(scope){
 
 		_.extend(scope, {
+
 			topBar: {
 				links: [
 					{
@@ -26,6 +27,7 @@ function mtg(CardGroup){
 					},
 				],
 			},
+
 		});
 
 	}

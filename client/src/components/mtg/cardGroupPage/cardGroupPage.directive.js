@@ -15,10 +15,6 @@ function cardGroupPage(CardGroup){
             pickCard: function(card){
                 scope.toGroup.addCardCopy(card);
             },
-
-            form: {
-
-            }
         });
 
 	}

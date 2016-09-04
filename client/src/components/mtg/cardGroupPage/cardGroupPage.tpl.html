@@ -1,8 +1,6 @@
 
 <div class="button" ng-click="showCardPicker=!showCardPicker">{{showCardPicker ? 'Close': 'Add Card'}}</div>
 
-<div expand="showCardPicker">
-	<card-picker pick="pickCard" style="height:{{showCardPicker ? 'auto' : '0'}}; transition: 0.2s; display:block;"></card-picker>
-</div>
+<card-picker ng-if="showCardPicker" pick="pickCard"></card-picker>
 
 <card-group-viewer card-group="toGroup"></card-group-viewer>

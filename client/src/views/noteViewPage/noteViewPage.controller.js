@@ -25,4 +25,5 @@ function NoteViewPage($scope, NoteGroup){
             }
         },
     ];
+
 }
